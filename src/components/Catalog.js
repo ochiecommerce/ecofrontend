@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Container, Spinner, Alert } from 'react-bootstrap';
 import './ProductList.css'
 
+const BACKEND_URL ="https://ecobackend-klly.onrender.com"
 function CatalogView({ products }) {
    const CONTENT_KEYS =
    {
@@ -117,7 +118,7 @@ function ProductData(props) {
    useEffect(() => {
       const fetchProducts = async () => {
          try {
-            const response = await axios.get('http://localhost:8000/api/products/');
+            const response = await axios.get(`${BACKEND_URL}/api/products/`);
             setProducts(response.data);
             setLoading(false);
          } catch (err) {
